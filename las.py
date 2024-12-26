@@ -1,5 +1,6 @@
 #lasデータを編集、解析するためのファイルです
 import laspy
+import matplotlib.pyplot as plt
 import pyarrow as pa
 import pyarrow.parquet as pq
 
@@ -27,3 +28,10 @@ class LasTokyo:
             names=["x","y","z"]
         )
         print(table)
+        return table
+    def getPlot(self):
+        A = self.getCoordinates()
+        fig = plt.figure(figsize = (10, 10))
+        ax= fig.add_subplot(111, projection='3d')
+        ax.scatter(A["x"],A["y"],A["z"], s = 1, c = "blue")
+        plt.show()
