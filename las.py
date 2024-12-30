@@ -19,7 +19,7 @@ class LasTokyo:
         Y = self.las.Y
         Z = self.las.Z
         return [X,Y,Z]
-    def GetCoordinates():
+    def GetCoordinates(self):
         X_coordinate = (self.las.X * self.header.x_offset)+self.header.x_offset
         Y_coordinate = (self.las.Y * self.header.y_offset)+self.header.y_offset
         Z_coordinate = (self.las.Z * self.header.z_offset)+self.header.z_offset
