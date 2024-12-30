@@ -19,16 +19,11 @@ class LasTokyo:
         Y = self.las.Y
         Z = self.las.Z
         return [X,Y,Z]
-    def getCoordinates(self):
-        data = self.las_array()
-        table = pa.Table.from_arrays(
-            [pa.array(data[0]),
-             pa.array(data[1]),
-             pa.array(data[2])],
-            names=["x","y","z"]
-        )
-        print(table)
-        return table
+    def GetCoordinates():
+        X_coordinate = (self.las.X * self.header.x_offset)+self.header.x_offset
+        Y_coordinate = (self.las.Y * self.header.y_offset)+self.header.y_offset
+        Z_coordinate = (self.las.Z * self.header.z_offset)+self.header.z_offset
+        return [X_coordinate,Y_coordinate,Z_coordinate]
     def getPlot(self):
         A = self.getCoordinates()
         fig = plt.figure(figsize = (10, 10))
